@@ -1,6 +1,6 @@
 """
-This script computes descriptive statistics (mean, median, mode, variance, and standard deviation) 
-for a list of numbers provided in a file. It handles invalid data gracefully, calculates statistics 
+This script computes descriptive statistics (mean, median, mode, variance, and standard deviation)
+for a list of numbers provided in a file. It handles invalid data gracefully, calculates statistics
 using basic algorithms, and reports both the results and the execution time.
 """
 
@@ -14,12 +14,12 @@ def compute_mean(data):
 def compute_median(data):
     """Calculate and return the median of the data."""
     sorted_data = sorted(data)
-    n = len(sorted_data)
-    midpoint = n // 2
-    if n % 2 == 0:
-        return (sorted_data[midpoint - 1] + sorted_data[midpoint]) / 2
-    else:
-        return sorted_data[midpoint]
+    count_n = len(sorted_data)
+    midpoint = count_n // 2
+    return (
+        (sorted_data[midpoint - 1] + sorted_data[midpoint]) / 2 if count_n % 2 == 0
+        else sorted_data[midpoint]
+        )
 
 def compute_mode(data):
     """Calculate and return the mode of the data."""
@@ -78,14 +78,16 @@ def main():
     start_time = time.time()
     try:
         with open(args.filename, 'r', encoding='utf-8') as file:
-            data = [float(line.strip()) for line in file if line.strip().replace('.', '', 1).isdigit()]
+            data = [
+                float(line.strip()) for line in file if line.strip().replace('.', '', 1).isdigit()
+                ]
     except FileNotFoundError:
         print(f"Error: The file {args.filename} does not exist.")
         return
-    except ValueError as e:
-        print(f"Error: An error occurred while processing the file: {e}")
+    except ValueError as value_error:
+        print(f"Error: An error occurred while processing the file: {value_error}")
         return
-    
+
     results = compute_statistics(data)
     elapsed_time = time.time() - start_time
     display_and_save_results(results, elapsed_time)

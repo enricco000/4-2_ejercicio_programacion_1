@@ -41,7 +41,7 @@ def process_file(filename):
     """Read and convert numbers from the file, handling invalid data."""
     start_time = time.time()
     results = []
-    
+
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file:
             stripped_line = line.strip()
@@ -65,7 +65,7 @@ def display_and_save_results(results, elapsed_time):
 
     output_str = "\n".join(output_lines)
     print(output_str)
-    
+
     with open('ConversionResults.txt', 'w', encoding='utf-8') as file:
         file.write(output_str)
 

@@ -37,9 +37,16 @@ def count_words(filename):
                             word_count[word] = 1
                     else:
                         print(f"Invalid data encountered and skipped: {word}")
-    except Exception as e: # Could not think of a way to make this more specific and it's quite late
-        print(f"An error occurred while processing the file: {e}")
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+    except PermissionError:
+        print(f"Error: Permission denied to read the file '{filename}'.")
+    except UnicodeDecodeError:
+        print(f"Error: The file '{filename}' contains characters that this script cannot decode.")
+    except IOError as ioerror:
+        print(f"Error: An IO error occurred while processing the file '{filename}': {ioerror}")
     return word_count
+
 
 def display_and_save_results(word_count, elapsed_time):
     """Display and save the word counts and elapsed time."""
@@ -51,7 +58,7 @@ def display_and_save_results(word_count, elapsed_time):
 
     output_str = "\n".join(output_lines)
     print(output_str)
-    
+
     with open('WordCountResults.txt', 'w', encoding='utf-8') as file:
         file.write(output_str)
 
