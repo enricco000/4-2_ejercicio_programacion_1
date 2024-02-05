@@ -28,7 +28,7 @@ def compute_mode(data):
         frequency[number] = frequency.get(number, 0) + 1
     max_frequency = max(frequency.values(), default=0)
     modes = [key for key, val in frequency.items() if val == max_frequency]
-    return modes[0] if len(modes) == 1 else modes
+    return modes[0] if len(modes) == 1 else '#N/A'
 
 def compute_variance(data, mean):
     """Calculate and return the variance of the data."""
