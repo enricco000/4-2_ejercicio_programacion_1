@@ -1,6 +1,6 @@
-Mean: 242.32
-Median: 239.5
-Mode: [393.0, 170.0]
-Variance: 21152.79959899749
-Standard Deviation: 145.44002062361477
-Elapsed Time: 0.0006740093231201172 seconds
+Mean: 2.474673954997149e+20
+Median: 2.4664097307429e+20
+Mode: #N/A
+Variance: 2.091243115380632e+40
+Standard Deviation: 1.4461131060123312e+20
+Elapsed Time: 0.01392507553100586 seconds
