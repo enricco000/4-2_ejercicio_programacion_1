@@ -58,9 +58,9 @@ def process_file(filename):
 
 def display_and_save_results(results, elapsed_time):
     """Display and save the conversion results, including the elapsed time."""
-    output_lines = ["Number, Binary, Hexadecimal"]
+    output_lines = ["NUM | BIN | HEX"]
     for number, binary, hexadecimal in results:
-        output_lines.append(f"{number}, {binary}, {hexadecimal}")
+        output_lines.append(f"{number} | {binary} | {hexadecimal}")
     output_lines.append(f"Elapsed Time: {elapsed_time} seconds")
 
     output_str = "\n".join(output_lines)
